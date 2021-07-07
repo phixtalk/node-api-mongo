@@ -4,6 +4,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 //Import Routes
 const authRoute = require('./routes/auth');
+const postRoute = require('./routes/posts');
 
 //Connect to DB
 mongoose.connect(
@@ -17,5 +18,6 @@ app.use(express.json());//now we can send post request from postman
 
 //Route Middlewares
 app.use('/api/user', authRoute);
+app.use('/api/posts', postRoute);
 
 app.listen(3000, () => console.log("Server Up and running"))
